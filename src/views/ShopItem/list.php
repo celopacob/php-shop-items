@@ -1,5 +1,8 @@
+<?php
+    include_once "templates/header.php";
+?>
 <div class='right-button-margin'>
-    <a href='src/ShopItem/create.php' class='btn btn-default pull-right'>Create Shop Item</a>
+    <a href='index.php?action=create' class='btn btn-default pull-right'>Create Shop Item</a>
 </div>
 <table class="tbl-qa">
     <thead>
@@ -25,7 +28,7 @@
                 </td>
                 <td><?php echo $item["description"]; ?></td>
                 <td>
-                    <a href='src/ShopItem/update.php?id=<?php echo $item['id']; ?>'>
+                    <a href='index.php?action=edit&id=<?php echo $item['id']; ?>'>
                         <i class='glyphicon glyphicon-edit'></i>
                     </a>
                 </td>
@@ -41,3 +44,6 @@
         ?>
     </tbody>
 </table>
+<?php
+    include_once "templates/footer.php";
+?>

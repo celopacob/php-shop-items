@@ -4,7 +4,7 @@ $(document).on("click", ".switch-checked", function() {
     var id = $(this).attr('edit-id');
     var checked = $(this).attr('edit-checked') == 1? 0 : 1;
 
-    $.post('../src/ShopItem/update.php', {
+    $.post('index.php?action=update', {
         id: id,
         checked: checked
     }, function(data){
@@ -12,30 +12,52 @@ $(document).on("click", ".switch-checked", function() {
             location.reload();
         });
     }).fail(function() {
-        alert('Unable to delete');
+        alert('Unable to update');
     });
 });
 
+//Update POST
 $(document).on("click", ".update", function() {
 
     const id = $('#id').val();
     const description = $('#description').val();
     const checked = $('#checked').val();
 
-    $.post('update.php', {
+    $.post('index.php?action=update', {
         id: id,
         checked: checked,
         description: description
     }, function(data){
         bootbox.alert(data, function() {
-            window.location.href('/');
+            window.location.href = "/";
         });
     }).fail(function() {
-        alert('Unable to delete');
+        alert('Unable to update');
     });
 });
 
-//Delete an item
+//Create POST
+$(document).on("click", ".create", function() {
+
+    const id = $('#id').val();
+    const description = $('#description').val();
+    const checked = $('#checked').val();
+
+    $.post('index.php?action=create', {
+        id: id,
+        checked: checked,
+        description: description
+    }, function(data){
+        bootbox.alert(data, function() {
+            window.location.href = "/";
+        });
+    }).fail(function() {
+        alert('Unable to create.');
+    });
+});
+
+
+//Delete
 $(document).on('click', '#delete-item', function() {
 
     var id = $(this).attr('delete-id');
@@ -53,7 +75,7 @@ $(document).on('click', '#delete-item', function() {
         },
         callback: function (result) {
             if(result==true){
-                $.post('../src/ShopItem/delete.php', {
+                $.post('index.php?action=delete', {
                     object_id: id
                 }, function(data){
                     bootbox.alert(data, function() {

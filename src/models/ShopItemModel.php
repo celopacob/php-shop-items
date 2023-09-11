@@ -1,6 +1,6 @@
 <?php
 
-    class ShopItem {
+    class ShopItemModel {
 
         private $conn;
         private $table_name = "shop_items";
@@ -48,7 +48,6 @@
             $this->description=htmlspecialchars(strip_tags($this->description));
             $this->checked==htmlspecialchars(strip_tags($this->checked));
 
-            // bind data
             $stmt->bindParam(":description", $this->description);
             $stmt->bindParam(":checked", $this->checked);
 

@@ -1,8 +1,11 @@
 <?php
-    include_once '../../config/database.php';
-    include_once './ShopItem.php';
+
+    define('APP_ROOT', dirname(dirname(__FILE__)));
+    define('URL_ROOT', '/');
+
+    require_once APP_ROOT . "/config/database.php";
 
     $database = new Database();
     $db = $database->getConnection();
-    $shop_item = new ShopItem($db);
+
 ?>

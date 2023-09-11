@@ -37,7 +37,7 @@
         <tr>
             <td></td>
             <td>
-                <button type="submit" class="btn btn-primary <?php echo $submit_type;?>">Save</button>
+                <button type="button" class="btn btn-primary <?php echo $submit_type;?>">Save</button>
             </td>
         </tr>
     </table>
